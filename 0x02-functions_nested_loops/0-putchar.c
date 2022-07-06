@@ -1,9 +1,11 @@
-#include<main.h>
+#include"main.h"
+
 /**
- * main - entry block
- * @void: no argument
- * Return: 0
- **/
+ * main -Entry point of the program
+ *
+ * Return: Always 0 (Success)
+ */
+
 int main(void)
 {
    char edwin[] = "_putchar";
