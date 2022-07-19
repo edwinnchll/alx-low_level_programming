@@ -2,7 +2,7 @@
 
 /**
  * _strpbrk - look for for any of a set of bytes.
- * @s: The string 
+ * @s: The string
  * @accept:set of bytes
  * Return: Searched values
  */
