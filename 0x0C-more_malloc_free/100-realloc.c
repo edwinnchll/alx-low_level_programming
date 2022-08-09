@@ -1,16 +1,19 @@
+
 #include "main.h"
 #include <stdlib.h>
 
 /**
- * _realloc - Allocates space with malloc and free
- * @pointer: A pointer to the memory previously allocated.
- * @old_size: The size of old memory
- * @new_size: The size for new memory
- * Return: 0 when error
+ * _realloc - Allocates memory
+ * @ptr: A pointer to the memory at start
+ * @old_size: The size of ptr
+ * @new_size: The size for new memory ptr
+ * Return: If new_size == old_size - ptr.
+ * If new_size == 0 and ptr is not NULL - NULL.
+ * Otherwise - a pointer to the reallocated memory block.
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	void *memory;
+	void *mem;
 	char *pointer_cpy, *Concate;
 	unsigned int start;
 
@@ -19,12 +22,12 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	if (ptr == NULL)
 	{
-		memory = malloc(new_size);
+		mem = malloc(new_size);
 
-		if (memory == NULL)
+		if (mem == NULL)
 			return (NULL);
 
-		return (memory);
+		return (mem);
 	}
 
 	if (new_size == 0 && ptr != NULL)
@@ -34,19 +37,19 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 
 	pointer_cpy = ptr;
-	memory = malloc(sizeof(*pointer_cpy) * new_size);
+	mem = malloc(sizeof(*pointer_cpy) * new_size);
 
-	if (memory == NULL)
+	if (mem == NULL)
 	{
 		free(ptr);
 		return (NULL);
 	}
 
-	Concate = memory;
+	Concate = mem;
 
 	for (start = 0; start < old_size && start < new_size; start++)
 		Concate[start] = *pointer_cpy++;
 
 	free(ptr);
-	return (memory);
+	return (mem);
 }
