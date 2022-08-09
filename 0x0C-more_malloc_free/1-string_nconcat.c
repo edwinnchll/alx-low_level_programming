@@ -23,13 +23,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	if (concat == NULL)
 		return (NULL);
-
 		size = 0;
-
 	for (start = 0; s1[start]; start++)
 		concat[size++] = s1[start];
-		for (start = 0; s2[start] && start < n; start++)
-			concat[size++] = s2[start];
+	for (start = 0; s2[start] && start < n; start++)
+		concat[size++] = s2[start];
 		concat[size] = '\0';
 	return (concat);
 }
