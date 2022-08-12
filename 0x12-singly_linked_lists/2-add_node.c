@@ -5,12 +5,13 @@
  * add_node - Adds a first node at the beginning
  * @head: A pointer to the head of the list
  * @str: The string to be added to the list
- * Return: Null if fail
+ * Return: Null when Error
  */
+
 list_t *add_node(list_t **head, const char *str)
 {
 	char *multiple;
-	int size;
+	int len;
 	list_t *first;
 
 	first = malloc(sizeof(list_t));
@@ -24,11 +25,11 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	}
 
-	for (size = 0; str[size];)
-		size++;
+	for (len = 0; str[len];)
+		len++;
 
 	first->str = multiple;
-	first->size = size;
+	first->len = len;
 	first->next = *head;
 
 	*head = first;
